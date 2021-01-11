@@ -1,5 +1,5 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
-import { AuthModule, OidcConfigService } from 'angular-auth-oidc-client';
+import { AuthModule, LogLevel, OidcConfigService } from 'angular-auth-oidc-client';
 
 export function configureAuth(oidcConfigService: OidcConfigService): () => Promise<any> {
     return () =>
@@ -8,10 +8,13 @@ export function configureAuth(oidcConfigService: OidcConfigService): () => Promi
               redirectUrl: window.location.origin,
               postLogoutRedirectUri: window.location.origin,
               clientId: 'testClient',
-              scope: 'invoices.write invoices.read', // 'openid profile offline_access ' + your scopes
+              scope: 'invoices.write invoices.read',
               responseType: 'code',
               silentRenew: false,
-              useRefreshToken: false
+              useRefreshToken: false,
+              autoUserinfo: false,
+              unauthorizedRoute: 'https://localhost:4200',
+              logLevel: LogLevel.Debug
           });
 }
 

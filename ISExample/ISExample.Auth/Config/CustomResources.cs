@@ -30,8 +30,6 @@ namespace ISExample.Auth.Config
                     DisplayName = "Invoices",
                     Description = "Invoices",
                     Scopes = new List<string> { "invoices.read", "invoices.write" },
-                    ApiSecrets = new List<Secret> { new Secret("7jGF!*k:|_GQ9J=xDfb%V4Eqz.^ULTsFC#]`y&K7U`#}>k)^)bGZ:EumnFBdI".Sha256())},
-                    UserClaims = new List<string> { "role" }
                 }
             };
         }
@@ -40,6 +38,7 @@ namespace ISExample.Auth.Config
         {
             return new[]
             {
+                new ApiScope("invoices", "Invoices"),
                 new ApiScope("invoices.read", "Read"),
                 new ApiScope("invoices.write", "Write")
             };

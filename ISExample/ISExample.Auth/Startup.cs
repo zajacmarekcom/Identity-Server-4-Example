@@ -20,7 +20,10 @@ namespace ISExample.Auth
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddIdentityServer()
+            services.AddIdentityServer(options =>
+            {
+                options.IssuerUri = "https://localhost:5001";
+            })
                 .AddInMemoryClients(Clients.Get())
                 .AddInMemoryIdentityResources(CustomResources.GetIdentityResources())
                 .AddInMemoryApiResources(CustomResources.GetApiResources())
