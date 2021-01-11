@@ -16,14 +16,10 @@ namespace ISExample.Auth.Config
                 new Client
                 {
                     ClientId = "testClient",
-                    AccessTokenType = AccessTokenType.Jwt,
-                    AlwaysIncludeUserClaimsInIdToken = true,
                     ClientName = "Test Client",
                     AllowOfflineAccess = true,
                     RedirectUris = new List<string> { "http://localhost:4200/assets/callback.html" },
-                    AllowedCorsOrigins = new List<string> { "http://localhost:4200" },
                     AllowedGrantTypes = GrantTypes.Implicit,
-                    RequirePkce = true,
                     RequireClientSecret = false,
                     AllowAccessTokensViaBrowser = true,
                     //ClientSecrets = new List<Secret> { new Secret("bvne(BW0{eGZU#rhS$OYRG_Mk[:m*$Ev`BL)V2h>;H6wRWY~=1f3r|G>Z9bMxeH".Sha256()) },

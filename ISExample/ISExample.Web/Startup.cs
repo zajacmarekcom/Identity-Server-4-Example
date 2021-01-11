@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System;
 
 namespace ISExample.Web
 {
@@ -24,9 +25,9 @@ namespace ISExample.Web
             services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
-                    options.Authority = "https://localhost:5001";
-                    options.RequireHttpsMetadata = false;
                     options.Audience = "invoices";
+                    options.Authority = "https://localhost:5001/";
+                    options.RequireHttpsMetadata = false;
                 });
             services.AddAuthorization();
             services.AddSwaggerGen(c =>

@@ -14,9 +14,9 @@ import { User, UserManager } from "oidc-client"
               client_id: 'testClient',
               redirect_uri: 'http://localhost:4200/assets/callback.html',
               silent_redirect_uri: 'http://localhost:4200/assets/renew-callback.html',
-              response_type: 'id_token token',
+              response_type: 'token',
               filterProtocolClaims: true,
-              scope: 'openid profile invoices',
+              scope: 'invoices.read invoices.write',
               loadUserInfo: true
           };
 
